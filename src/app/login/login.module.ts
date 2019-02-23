@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: 'perfil',
-        redirectTo: './perfil/perfil.module#PerfilPageModule'
+        redirectTo:'./perfil/perfil.module#PerfilPageModule'
       
       }
     ]
