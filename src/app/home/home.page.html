@@ -10,18 +10,30 @@
 
 <ion-content padding class="bg-image">
   
-  <div class="row">
-    <div class="col text-center">
-        <ion-button class="botones"  color="dark" shape="round" (click)="login()">Usuario</ion-button>
-    </div>
-  </div>
+   
     
-  <div class="row">
-      <div class="col text-center" >
-          <ion-button class="botones"  color="dark" shape="round" (click)="login()">Empresa</ion-button>
-      </div>
-    </div>  
+  
+<ion-grid>
+  <ion-row>
+    <ion-col padding-top>
+        <div>
+            <ion-button class="botones"  color="dark" shape="round" (click)="login()">Usuario</ion-button>
+        </div>
+      </ion-col>
+  </ion-row>
+<br>
+<br>
+<br>
+<br>
+  <ion-row>
+      <ion-col padding-top>
+          <div>
+              <ion-button class="botones"  color="dark" shape="round" (click)="login()">Empresa</ion-button>
+          </div>
+        </ion-col>
+  </ion-row>
 
-
+</ion-grid>
+        
    
 </ion-content>
