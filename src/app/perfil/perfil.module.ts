@@ -10,7 +10,14 @@ import { PerfilPage } from './perfil.page';
 const routes: Routes = [
   {
     path: '',
-    component: PerfilPage
+    component: PerfilPage, 
+    children: [
+      {
+        path: 'empleo',
+        redirectTo:'./empleo/empleo.module#EmpleoPageModule'
+      
+      }
+    ]
   }
 ];
 
