@@ -1,4 +1,5 @@
-.boton1 {
+
+    .boton1 {
     
     --padding-bottom: 30px;
     --padding-end: 30px;
@@ -9,9 +10,11 @@
     margin:260px;
     margin-left: 500px;
     text-align: center;
-}
+    }
 
-.boton2 {
+
+
+    .boton2 {
     
     --padding-bottom: 30px;
     --padding-end: 30px;
@@ -22,12 +25,26 @@
     margin:260px;
     margin-left: 700px;
     text-align: center;
-}
+   }
+
 
 
 .bg-image{
         --background: url('../home/imagenes/fondo.png') no-repeat center center / cover;
 }
+
+$grid-breakpoints: (
+  sm: 0,
+  md: 768px,
+  lg: 1024px
+);
+
+$grid-max-widths: (
+  sm: 420px,
+  md: 720px,
+  lg: 960px
+);
+
 
 
 
