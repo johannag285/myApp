@@ -4,8 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-content padding>
+<ion-content padding  class="fondo">
         <ion-card  class="card"> 
             <ion-card-header class= "card-header"> 
               <ion-card-title> Crear tu cuenta en Student Work</ion-card-title> 
@@ -14,19 +13,19 @@
              
                 <ion-item>
                     <ion-label position="floating">
-                        <ion-icon name="person" item-left></ion-icon> Nombre completo
+                        <ion-icon name="person" item-left color="danger"></ion-icon> Nombre completo
                     </ion-label>
                       <ion-input clearInput type="text" ></ion-input>
                 </ion-item>
                   <ion-item>
                       <ion-label position="floating">
-                          <ion-icon name="mail" item-left></ion-icon> Correo
+                          <ion-icon name="mail" item-left color="danger"></ion-icon> Correo
                       </ion-label>
                        <ion-input clearInput type="email" pattern="email"></ion-input>
                     </ion-item>
                 <ion-item>
                   <ion-label position="floating">
-                    <ion-icon name="key" item-left></ion-icon> Contraseña
+                    <ion-icon name="key" item-left color="danger"></ion-icon> Contraseña
                   </ion-label>
                   <ion-input type="password" pattern="password"></ion-input>
                 </ion-item>
@@ -40,18 +39,18 @@
                   
                       <ion-item>
                         <ion-label>Estudiate</ion-label>
-                        <ion-radio slot="start" value="biff" checked></ion-radio>
+                        <ion-radio slot="start" value="biff" color="danger" checked></ion-radio>
                       </ion-item>
                   
                       <ion-item>
                         <ion-label>Empleador</ion-label>
-                        <ion-radio slot="start" value="griff" ></ion-radio>
+                        <ion-radio slot="start" value="griff"color="danger" ></ion-radio>
                       </ion-item>
                     </ion-radio-group>
                   </ion-list>
               </ion-card-content > 
 
-              <ion-button class="boton1"shape="round" href= "perfil-estudiante()" >Guardar</ion-button>
+              <ion-button class="boton1"shape="round" color="danger" href= "perfil-estudiante()" >Guardar</ion-button>
           </ion-card >
 </ion-content>
 
