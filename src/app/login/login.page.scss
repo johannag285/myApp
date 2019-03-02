@@ -1,10 +1,24 @@
-.boton1 {      
+#crear {      
     margin: 10px;
     margin-left: 40px;
+    --background: rgb(226, 43, 113);
 
 }
 
-.boton2 {   
+#ingresar {   
     margin: 10px;
     margin-left: 30px;
+    --background: rgb(226, 43, 113);
+}
+
+.fondo{
+    --background: rgba(0, 217, 255, 0.123);
+}
+
+ion-card{
+  --background: rgb(0, 128, 127);
+}
+
+ion-item{
+    --background: rgba(0, 128, 127);
 }
