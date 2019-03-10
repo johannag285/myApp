@@ -8,22 +8,36 @@
     <ion-card>
       <ion-card-header class="card">
           <ion-img src="assets/icon/perfil.PNG"></ion-img> 
-        <ion-card-title>Mariana Sanchez</ion-card-title>
-        <ion-card-subtitle>Estudiante de derecho</ion-card-subtitle>
-        <ion-card-subtitle>Bogotá, Colombia</ion-card-subtitle>
+        <ion-item>
+          <ion-label position="floating" color="danger">Tú nombre</ion-label>
+          <ion-input clearInput type="text" pattern="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating" color="danger">Tú Profesión</ion-label>
+            <ion-input clearInput type="text" pattern="text"></ion-input>
+        </ion-item>
+
+          <ion-item>
+              <ion-label position="floating"color="danger">Tú Ciudad actual</ion-label>
+              <ion-input clearInput type="text" pattern="text"></ion-input>
+            </ion-item>
+        
+        
       </ion-card-header>
     
       <ion-card-content text-justify class="card">
-        Soy una persona dedicada, honesta que se encuentra en septimo semestre
-        de derecho y quiere desarrollase profesionalmente para asi poder aplicar
-        los conocimientos que he adquirido.
+          <ion-item>
+              <ion-label position="floating" color="danger">Cuentanos sobre ti</ion-label>
+              <ion-input clearInput type="text" pattern="text"></ion-input>
+          </ion-item>
       </ion-card-content>
     </ion-card>
     
     <ion-card >
       <ion-item>
         <ion-icon name="list-box" slot="start" color ="danger"></ion-icon>
-        <ion-label>Hoja de vida</ion-label>
+        <ion-label color="danger">Hoja de vida</ion-label>
         <ion-button fill="outline" slot="end" color="success">View</ion-button>
       </ion-item>
     </ion-card>
