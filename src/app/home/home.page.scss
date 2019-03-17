@@ -1,34 +1,23 @@
 
-    .boton1 {
+  .boton1 {
     
     --padding-bottom: 30px;
     --padding-end: 30px;
     --padding-start: 30px;
     --padding-top: 30px;
    
-    position: absolute;
-    margin:330px;
-    margin-left: 650px;
+    background-position:  center center;
+    margin:130px;
+    margin-top: 365px;
     text-align: center;
-    --background: green;
-    }
-
+  }
 
 .bg-image{
-        --background: url('../home/imagenes/fondoK.png') no-repeat center center / cover;
+    --background: url('../home/imagenes/fondoK.png') no-repeat center center / cover;
 }
 
-$grid-breakpoints: (
-  sm: 0,
-  md: 768px,
-  lg: 1024px
-);
 
-$grid-max-widths: (
-  sm: 420px,
-  md: 720px,
-  lg: 960px
-);
+
 
 
 
