@@ -6,8 +6,18 @@
   
   <ion-content padding class ="fondo">
     <ion-card>
+        
       <ion-card-header class="card">
-          <ion-img src="assets/icon/perfil.PNG"></ion-img> 
+        <br>
+          <form action="../../form-result.php" method="post" enctype="multipart/form-data" target="_blank">
+              Sube una imagen:
+          
+              <input type="file" name="imagensubida" accept="image/png, .jpeg, .jpg, image/gif">
+          
+              <input type="submit" value="Enviar datos">
+          
+          </form>
+          <br>
         <ion-item>
           <ion-label position="floating" color="danger">Tú nombre</ion-label>
           <ion-input clearInput type="text" pattern="text"></ion-input>
@@ -47,5 +57,7 @@
           <ion-icon  name="briefcase" ></ion-icon>
         </ion-fab-button>
       </ion-fab>
+
+      <ion-button href="perfil-empresa()">EMPRESA</ion-button>
     
   </ion-content>
