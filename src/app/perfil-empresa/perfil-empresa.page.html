@@ -1,9 +1,62 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>perfilEmpresa</ion-title>
+    <ion-title>Student Work</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class ="fondo">
+    <ion-card>
+        
+      <ion-card-header class="card">
+        <br>
+          <form action="../../form-result.php" method="post" enctype="multipart/form-data" target="_blank">
+              Sube una imagen:
+          
+              <input type="file" name="imagensubida" accept="image/png, .jpeg, .jpg, image/gif">
+          
+              <input type="submit" value="Enviar datos">
+          
+          </form>
+          <br>
+          <ion-item>
+          
+              <ion-label position="floating" color="tertiary">
+                  <ion-icon name="person" item-left color="secondary"></ion-icon>
+                  Cargo
+              </ion-label>
+              <ion-input clearInput type="text" pattern="text"></ion-input>
+            </ion-item>
+        <ion-item>
+          
+          <ion-label position="floating" color="tertiary">
+              <ion-icon name="book" item-left color="secondary"></ion-icon>
+              Haz una pequeña descripción 
+          </ion-label>
+          <ion-input clearInput type="text" pattern="text"></ion-input>
+        </ion-item>
 
-</ion-content>
+        <ion-item>
+            <ion-label position="floating" color="tertiary">
+                <ion-icon name="trending-up" item-left color="secondary"></ion-icon>
+              Salario
+            </ion-label>
+            <ion-input clearInput type="text" pattern="text"></ion-input>
+        </ion-item>
+
+          <ion-item>
+              <ion-label position="floating"color="tertiary">
+                  <ion-icon name="alarm"  md="md-alarm" item-left color="secondary"></ion-icon>
+                Horario
+              </ion-label>
+              <ion-input clearInput type="text" pattern="text"></ion-input>
+            </ion-item>
+            <ion-button  id="publicar" shape="round"  href="empleo()" >Publicar</ion-button>
+      </ion-card-header>
+      
+    
+     
+    </ion-card>
+    
+ 
+    
+  </ion-content>
