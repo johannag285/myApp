@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { PerfilEmpresaPage } from './perfil-empresa.page';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+
 
 const routes: Routes = [
   {
@@ -20,6 +22,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
+  ],
+  providers:[
+    Camera
   ],
   declarations: [PerfilEmpresaPage]
 })
