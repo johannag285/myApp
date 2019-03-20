@@ -1,19 +1,21 @@
 
   .boton1 {
-    
-    --padding-bottom: 30px;
-    --padding-end: 30px;
-    --padding-start: 30px;
-    --padding-top: 30px;
-   
     background-position:  center center;
-    margin:130px;
-    margin-top: 600px;
+    margin:120px;
+    margin-top: -108px;
+    margin-left: 102px;
+    text-align: center;
+  }
+  .boton2 {
+    background-position:  center center;
+    margin:120px;
+    margin-left: 102px;
+    margin-top: 530px;
     text-align: center;
   }
 
 .bg-image{
-    --background: url('../home/imagenes/fondo1.jpg') no-repeat center center / cover;
+    --background: url('../home/imagenes/fondo2.jpg') no-repeat center center / cover;
 }
 
 
