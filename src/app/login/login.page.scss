@@ -1,16 +1,21 @@
+.bg-image{
+    --background: url('../home/imagenes/fondoT.jpg') no-repeat center center / cover;
+}
+
 #crear {      
     margin: 10px;
-    margin-left: 40px;
-    --background: rgb(226, 43, 113);
+    margin-left: 0px;
+    
 
 }
 
 #ingresar {   
     margin: 10px;
-    margin-left: 30px;
-    --background: rgb(226, 43, 113);
+    margin-left: 8px;
+    
 }
 
 ion-card{
-    --background: rgb(181, 209, 209);
+    --background:white;
+    margin-top: 30px;
 }
