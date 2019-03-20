@@ -1,16 +1,18 @@
-.fondo{
-    --background:  rgb(226, 210, 255);;
+.bg-image{
+  --background: url('../home/imagenes/fondoT.jpg') no-repeat center center / cover;
 }
 
 .card {
-    background-color: rgb(190, 155, 255);
+    background-color:#fff;
     box-shadow: none;
     color : black;
-  }
+}
 
-  #publicar {      
-    margin: 10px;
-    margin-left: 120px;
-    --background: rgb(36, 148, 139);
 
+.boton1 {
+  background-position:  center center;
+  margin:120px;
+  margin-top: 0px;
+  margin-left: 122px;
+  text-align: center;
 }

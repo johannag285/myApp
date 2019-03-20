@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-toolbar  color="danger">
+  <ion-toolbar  color="warning">
     <ion-title>Student Work</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding class ="fondo">
-    <ion-card>
-        
+<ion-content padding class="bg-image">
+    <ion-card> 
       <ion-card-header class="card">
+          <ion-card-title> Ingrese la oferta laboral</ion-card-title>
         <br>
           <form action="../../form-result.php" method="post" enctype="multipart/form-data" target="_blank">
               Sube una imagen:
@@ -20,43 +20,37 @@
           <br>
           <ion-item>
           
-              <ion-label position="floating" color="tertiary">
-                  <ion-icon name="person" item-left color="secondary"></ion-icon>
+              <ion-label position="floating" color="dark">
+                  <ion-icon name="person" item-left color="warning"></ion-icon>
                   Cargo
               </ion-label>
               <ion-input clearInput type="text" pattern="text"></ion-input>
             </ion-item>
         <ion-item>
           
-          <ion-label position="floating" color="tertiary">
-              <ion-icon name="book" item-left color="secondary"></ion-icon>
+          <ion-label position="floating" color="dark">
+              <ion-icon name="book" item-left color="warning"></ion-icon>
               Haz una pequeña descripción 
           </ion-label>
           <ion-input clearInput type="text" pattern="text"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label position="floating" color="tertiary">
-                <ion-icon name="trending-up" item-left color="secondary"></ion-icon>
+            <ion-label position="floating" color="dark">
+                <ion-icon name="trending-up" item-left color="warning"></ion-icon>
               Salario
             </ion-label>
             <ion-input clearInput type="text" pattern="text"></ion-input>
         </ion-item>
 
           <ion-item>
-              <ion-label position="floating"color="tertiary">
-                  <ion-icon name="alarm"  md="md-alarm" item-left color="secondary"></ion-icon>
+              <ion-label position="floating"color="dark">
+                  <ion-icon name="alarm"  md="md-alarm" item-left color="warning"></ion-icon>
                 Horario
               </ion-label>
               <ion-input clearInput type="text" pattern="text"></ion-input>
             </ion-item>
-            <ion-button  id="publicar" shape="round"  href="empleo()" >Publicar</ion-button>
       </ion-card-header>
-      
-    
-     
     </ion-card>
-    
- 
-    
+    <ion-button class="boton1" color=dark shape="round"  href="empleo()" >Publicar</ion-button>
   </ion-content>

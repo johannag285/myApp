@@ -4,29 +4,13 @@
     box-shadow: none;
   }
   .card {
-    background-color: #91D2C3;
+    background-color: white;
     box-shadow: none;
     color : black;
   }
+  .bg-image{
+    --background: url('../home/imagenes/fondoT.jpg') no-repeat center center / cover;
+}
   
   
-.fondo{
-    --background: rgba(0, 217, 255, 0.123);
-}
-.input{
-  color : black; 
-  box-shadow: none;
-}
-.submitbtn{
-  text-transform: uppercase;
-  background-color: #91D2C3;
-  border-bottom: 0;
-  font-weight: bold;
-  width: 90px;
-  border:none;
-  height: 30px;
-  color: #fff;
-}
-.submitbtn:hover{
-  color:#c3e3fc;
-}
+

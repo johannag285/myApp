@@ -1,35 +1,36 @@
 <ion-header>
-    <ion-toolbar  color="danger">
+    <ion-toolbar color="warning">
       <ion-title>Student Work</ion-title>
     </ion-toolbar>
   </ion-header>
   
-  <ion-content padding class ="fondo">
+  <ion-content padding class ="bg-image">
     <ion-card>
         
       <ion-card-header class="card">
-        <br>
-          <form action="../../form-result.php" method="post" enctype="multipart/form-data" target="_blank">
+          <ion-card-title> Ingrese los datos de su perfil</ion-card-title>
+        <br >
+          <form  action="../../form-result.php" method="post" enctype="multipart/form-data" target="_blank" >
               Sube una imagen:
           
-              <input type="file" name="imagensubida" accept="image/png, .jpeg, .jpg, image/gif">
+              <input type="file" name="imagensubida" accept="image/png, .jpeg, .jpg, image/gif" >
           
-              <input type="submit" value="Enviar datos">
+              <input type="submit"value="Enviar datos">
           
           </form>
           <br>
         <ion-item>
-          <ion-label position="floating" color="danger">Tú nombre</ion-label>
+          <ion-label position="floating" color="dark">Tú nombre</ion-label>
           <ion-input clearInput type="text" pattern="text"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label position="floating" color="danger">Tú Profesión</ion-label>
+            <ion-label position="floating" color="dark">Tú Profesión</ion-label>
             <ion-input clearInput type="text" pattern="text"></ion-input>
         </ion-item>
 
           <ion-item>
-              <ion-label position="floating"color="danger">Tú Ciudad actual</ion-label>
+              <ion-label position="floating"color="dark">Tú Ciudad actual</ion-label>
               <ion-input clearInput type="text" pattern="text"></ion-input>
             </ion-item>
         
@@ -38,7 +39,7 @@
     
       <ion-card-content text-justify class="card">
           <ion-item>
-              <ion-label position="floating" color="danger">Cuentanos sobre ti</ion-label>
+              <ion-label position="floating" color="dark">Cuentanos sobre ti</ion-label>
               <ion-input clearInput type="text" pattern="text"></ion-input>
           </ion-item>
       </ion-card-content>
@@ -46,18 +47,18 @@
     
     <ion-card >
       <ion-item>
-        <ion-icon name="list-box" slot="start" color ="danger"></ion-icon>
-        <ion-label color="danger">Hoja de vida</ion-label>
-        <ion-button fill="outline" slot="end" color="success">View</ion-button>
+        <ion-icon name="list-box" slot="start" color ="warning"></ion-icon>
+        <ion-label color="warning">Hoja de vida</ion-label>
+        <ion-button fill="outline" slot="end" color="dark">View</ion-button>
       </ion-item>
     </ion-card>
     
-      <ion-fab vertical="top" horizontal="start" slot="fixed">
-        <ion-fab-button href="empleo()" color ="danger" >
+      <ion-fab vertical="top" horizontal="end"  slot="fixed">
+        <ion-fab-button href="empleo()" color ="dark" >
           <ion-icon  name="briefcase" ></ion-icon>
         </ion-fab-button>
       </ion-fab>
 
-      <ion-button href="perfil-empresa()">EMPRESA</ion-button>
+      <ion-button color="warning"href="perfil-empresa()">EMPRESA</ion-button>
     
   </ion-content>
