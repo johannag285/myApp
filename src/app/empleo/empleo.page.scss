@@ -1,7 +1,12 @@
-.fondo{
-    --background: rgba(0, 217, 255, 0.123);
-}
+.bg-image{
+    --background: url('../home/imagenes/fondoT.jpg') no-repeat center center / cover;
+  }
 .card {
     background-color: #fff    ;
     box-shadow: none;
+  }
+  .tiempo {
+    background-position:  center center;
+    margin-left: 80px;
+    text-align: center;
   }

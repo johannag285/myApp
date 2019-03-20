@@ -1,23 +1,16 @@
 .boton1{
     margin:10px;
-    margin-left: 110px;
+    margin-left: 120px;
     color: black;  
    
 }
-.card-header {
-    background-color: #1F8870;  
-    color: #fff  ; 
-    box-shadow: none;
-  }
+
   .card {
-    background-color: #91D2C3    ;
+    background-color: #fff   ;
     box-shadow: none;
-  }
-  ion-item{
-    --background : #ffffff   ; 
-     
   }
   
-.fondo{
-    --background: rgba(0, 217, 255, 0.123);
-}
+  .bg-image{
+    --background: url('../home/imagenes/fondoT.jpg') no-repeat center center / cover;
+  }
+  
