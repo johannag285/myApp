@@ -8,6 +8,7 @@
     <ion-card> 
       <ion-card-header class="card">
           <ion-card-title> Ingrese la oferta laboral</ion-card-title>
+          <!--
         <br>
           <form action="../../form-result.php" method="post" enctype="multipart/form-data" target="_blank">
               Sube una imagen:
@@ -17,7 +18,11 @@
               <input type="submit" value="Enviar datos">
           
           </form>
-          <br>
+          <br>-->
+          <ion-button (click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
+          <ion-button (click)="getPhoto()" color="warning" class="getFoto"> Foto desde galeria</ion-button>
+          <p>  <img src="{{ myPhoto }}"/> </p>
+
           <ion-item>
           
               <ion-label position="floating" color="dark">
