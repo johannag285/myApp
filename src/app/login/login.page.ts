@@ -5,13 +5,15 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
+  
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
+ 
   constructor() {}
 
   ngOnInit() {
   }
-
+ 
 }
 
