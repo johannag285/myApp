@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule,Routes } from '@angular/router';
+import { IonicStorageModule } from '@ionic/storage';
+
 
 import { HomePage } from './home.page';
 
@@ -25,6 +27,11 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
+    IonicStorageModule.forRoot({
+      name: '__mydb',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+      })
+      
   ],
   declarations: [HomePage]
 })
