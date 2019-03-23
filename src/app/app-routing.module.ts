@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'empleo', loadChildren: './empleo/empleo.module#EmpleoPageModule' },
   { path: 'crear', loadChildren: './crear/crear.module#CrearPageModule' },
   { path: 'perfil-estudiante', loadChildren: './perfil-estudiante/perfil-estudiante.module#PerfilEstudiantePageModule' },
-  { path: 'perfil-empresa', loadChildren: './perfil-empresa/perfil-empresa.module#PerfilEmpresaPageModule' },
+  { path: 'perfil-empresa', loadChildren: './perfil-empresa/perfil-empresa.module#PerfilEmpresaPageModule' },  { path: 'login-empresa', loadChildren: './login-empresa/login-empresa.module#LoginEmpresaPageModule' },
+
 
 ];
 
