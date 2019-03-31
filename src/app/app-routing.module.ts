@@ -8,8 +8,12 @@ const routes: Routes = [
   { path: 'empleo', loadChildren: './empleo/empleo.module#EmpleoPageModule' },
   { path: 'crear', loadChildren: './crear/crear.module#CrearPageModule' },
   { path: 'perfil-estudiante', loadChildren: './perfil-estudiante/perfil-estudiante.module#PerfilEstudiantePageModule' },
-  { path: 'perfil-empresa', loadChildren: './perfil-empresa/perfil-empresa.module#PerfilEmpresaPageModule' },  { path: 'login-empresa', loadChildren: './login-empresa/login-empresa.module#LoginEmpresaPageModule' },
+  { path: 'perfil-estudiante/:id', loadChildren: './perfil-estudiante/perfil-estudiante.module#PerfilEstudiantePageModule' },
+  { path: 'perfil-empresa', loadChildren: './perfil-empresa/perfil-empresa.module#PerfilEmpresaPageModule' },
+  { path: 'login-empresa', loadChildren: './login-empresa/login-empresa.module#LoginEmpresaPageModule' },
   { path: 'crear-estudiante', loadChildren: './crear-estudiante/crear-estudiante.module#CrearEstudiantePageModule' },
+  { path: 'descripcion', loadChildren: './descripcion/descripcion.module#DescripcionPageModule' },
+  { path: 'descripcion2', loadChildren: './descripcion2/descripcion2.module#Descripcion2PageModule' },
 
 
 ];
