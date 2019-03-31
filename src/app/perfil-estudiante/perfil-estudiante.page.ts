@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Storage } from '@ionic/storage';
+import{ AngularFireDatabase } from 'angularfire2/database';
+import{Todo, TodoService} from './../services/todo.service';
 
 @Component({
   selector: 'app-perfil-estudiante',
@@ -8,10 +11,34 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 })
 export class PerfilEstudiantePage implements OnInit {
   myPhoto: any;
-  constructor(private camera: Camera) { }
+  hoja:any;
+  key: string ;
+  nombre : any;
+  profesion : any;
+  ciudad : any;
+  detalle:any;
+  
+  text1: string;
+  text2: string;
 
-  ngOnInit() {
+
+  registro={
+    'nombre':"",
+    'profesion':"",
+    'ciudad':"",
+    'detalle':""
   }
+  todos: Todo[];
+  constructor(private camera: Camera, private storage: Storage, private todoService:TodoService ) {}
+
+ 
+  ngOnInit() {
+   this.todoService.getTodos().subscribe(res =>{
+       this.todos = res;
+       console.log(this.todos);
+   });
+  }
+ 
   takePhoto(){
     const options: CameraOptions = {
       quality: 100,
@@ -48,5 +75,52 @@ export class PerfilEstudiantePage implements OnInit {
      // Handle error
     });
   }
+ 
 
+   ir(var1,callback) {
+    callback(var1);
+ }
+  setText1(){
+    /*this.storage.set('text1',this.registro.nombre);
+    this.storage.set('text2',this.registro.profesion);
+    this.storage.set('text3',this.registro.ciudad);
+    this.storage.set('text4',this.registro.detalle);
+    ir();*/
+    window.localStorage.setItem('text1',this.registro.nombre);
+    window.localStorage.setItem('text2',this.registro.profesion);
+    window.localStorage.setItem('text3',this.registro.ciudad);
+    window.localStorage.setItem('text4',this.registro.detalle);
+    /*window.localStorage.setItem('text1',nombre);
+    window.localStorage.setItem('text2',profesion);
+    window.localStorage.setItem('text3',ciudad);*/
+    
+    //this.storage.set('myData',this.text1);
+  }
+
+  getText1(){
+    
+    /*this.setText(function(){
+      window.location.href = "";
+    });*/
+    this.registro.nombre = window.localStorage.getItem('text1');
+    this.registro.profesion = window.localStorage.getItem('text2');
+    this.registro.ciudad = window.localStorage.getItem('text3');
+    this.registro.detalle = window.localStorage.getItem('text4');
+    //console.log('datos',this.nombre1,this.profesion1,this.ciudad1);
+    /*this.storage.get('myData').then((val) => {
+      console.log('Datos', val);
+      });*/
+  }
+
+
+  setText(){
+    this.storage.set('myData',this.text1);
+  }
+
+  getText(){
+    this.storage.get('myData').then((val) => {
+      console.log('Datos', val);
+      });
+  }
+  
 }
