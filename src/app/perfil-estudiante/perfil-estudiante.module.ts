@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { PerfilEstudiantePage } from './perfil-estudiante.page';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { IonicStorageModule } from '@ionic/storage';
+
+
 
 const routes: Routes = [
   {
@@ -20,7 +23,11 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    IonicStorageModule.forRoot({
+      name: '__mydb',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+      })      
   ],
   providers:[
     Camera
