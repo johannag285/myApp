@@ -26,20 +26,20 @@
 
           <ion-button (click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
           <ion-button (click)="getPhoto()" color="warning" class="getFoto"> Foto desde galeria</ion-button>
-          <p>  <img src="{{ myPhoto }}"/> </p>
+          <ion-label>  <img src="{{ myPhoto }}"/> </ion-label >
         <ion-item>
           <ion-label position="floating" color="dark">Tú nombre</ion-label>
-          <ion-input clearInput type="text" pattern="text"></ion-input>
+          <ion-input clearInput type="text" [(ngModel)]="text1" pattern="text"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label position="floating" color="dark">Tú Profesión</ion-label>
-            <ion-input clearInput type="text" pattern="text"></ion-input>
+            <ion-input clearInput type="text" [(ngModel)]="text2" pattern="text"></ion-input>
         </ion-item>
 
           <ion-item>
               <ion-label position="floating"color="dark">Tú Ciudad actual</ion-label>
-              <ion-input clearInput type="text" pattern="text"></ion-input>
+              <ion-input clearInput type="text" [(ngModel)]="text3" pattern="text"></ion-input>
             </ion-item>
         
         
@@ -48,17 +48,27 @@
       <ion-card-content text-justify class="card">
           <ion-item>
               <ion-label position="floating" color="dark">Cuentanos sobre ti</ion-label>
-              <ion-input clearInput type="text" pattern="text"></ion-input>
+              <ion-input clearInput type="text" [(ngModel)]="text4" pattern="text"></ion-input>
           </ion-item>
       </ion-card-content>
     </ion-card>
     
     <ion-card >
+   
       <ion-item>
         <ion-icon name="list-box" slot="start" color ="warning"></ion-icon>
         <ion-label color="warning">Hoja de vida</ion-label>
-        <ion-button fill="outline" slot="end" color="dark">View</ion-button>
+    
+        <ion-input [(ngModel)]="hoja" type="file" color="warning" id="hoja_vida"> </ion-input>
+
+        <ion-button (click)="setHojaVida()" color="warning" id="enviar">Enviar</ion-button>
+        <!--<ion-button (click)="getHojaVida()" color="warning" id="enviar">Cargar Datos</ion-button>-->
+       
       </ion-item>
+
+     
+
+     
     </ion-card>
     
       <ion-fab vertical="top" horizontal="end"  slot="fixed">
@@ -66,7 +76,9 @@
           <ion-icon  name="briefcase" ></ion-icon>
         </ion-fab-button>
       </ion-fab>
-
+      <ion-button (click)="setText()" color="warning">Subir</ion-button>
+      <ion-button (click)="getText()" color="warning">Ver</ion-button>
+      <ion-button (click)="btnAdd()" color="warning">Subir bd</ion-button>
       <ion-button color="warning"href="perfil-empresa()">EMPRESA</ion-button>
     
   </ion-content>
