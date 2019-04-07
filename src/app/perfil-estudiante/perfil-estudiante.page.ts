@@ -31,53 +31,13 @@ export class PerfilEstudiantePage implements OnInit {
     'ciudad':"",
     'detalle':""
   }
-  todo: Todo ={
-    task:'',
-    priority: '0'
-  };
-  todoId =null;
-  constructor(private camera: Camera, private storage: Storage, private todoService:TodoService,private router:ActivatedRoute,private nav:NavController,private loadingContoller:LoadingController ) {}
+ 
+  constructor(private camera: Camera) {}
 
  
-  ngOnInit() {
-    this.todoId = this.router.snapshot.params['id'];
-    if(this.todoId){
-        this.loadTodo();
-    }
-  }
+  ngOnInit() {}
 
-  async loadTodo(){
-   const loading = await this.loadingContoller.create({
-     message:'Loading ...'
-   });
-   await loading.present(); 
-   this.todoService.getTodo(this.todoId).subscribe(res=>{
-     loading.dismiss();
-     this.todo = res;
-   });
-  }
-  async saveTodo(){
-    const loading = await this.loadingContoller.create({
-      message:'Saving ...'
-    });
-    await loading.present(); 
-    if(this.todoId){
-      //actualizar 
-      this.todoService.updateTodo(this.todo,this.todoId).then(()=>{
-        loading.dismiss();
-        this.nav.navigateForward('/');
-      });
-    }else{
-      //adicionar uno nuevo
-      this.todoService.addTodo(this.todo).then(()=>{
-        loading.dismiss();
-        this.nav.navigateForward('/');
-      });
-    }
-   }
-  remove(item){
-    this.todoService.removeTodo(item.id);
-  }
+
  
   takePhoto(){
     const options: CameraOptions = {
@@ -152,15 +112,4 @@ export class PerfilEstudiantePage implements OnInit {
       });*/
   }
 
-
-  setText(){
-    this.storage.set('myData',this.text1);
-  }
-
-  getText(){
-    this.storage.get('myData').then((val) => {
-      console.log('Datos', val);
-      });
-  }
-  
 }

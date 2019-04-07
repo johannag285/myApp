@@ -13,10 +13,7 @@ export class HomePage implements OnInit{
  }
 
  ngOnInit(){
-  this.todoService.getTodos().subscribe(res =>{
-    this.todos = res;
-    console.log(this.todos);
-    });
+  
  }
 
  
