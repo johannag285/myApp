@@ -3,6 +3,9 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Storage } from '@ionic/storage';
 import{ AngularFireDatabase } from 'angularfire2/database';
 import{Todo, TodoService} from './../services/todo.service';
+import{ActivatedRoute} from '@angular/router';
+import { NavController, LoadingController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-perfil-estudiante',
@@ -28,15 +31,52 @@ export class PerfilEstudiantePage implements OnInit {
     'ciudad':"",
     'detalle':""
   }
-  todos: Todo[];
-  constructor(private camera: Camera, private storage: Storage, private todoService:TodoService ) {}
+  todo: Todo ={
+    task:'',
+    priority: '0'
+  };
+  todoId =null;
+  constructor(private camera: Camera, private storage: Storage, private todoService:TodoService,private router:ActivatedRoute,private nav:NavController,private loadingContoller:LoadingController ) {}
 
  
   ngOnInit() {
-   this.todoService.getTodos().subscribe(res =>{
-       this.todos = res;
-       console.log(this.todos);
+    this.todoId = this.router.snapshot.params['id'];
+    if(this.todoId){
+        this.loadTodo();
+    }
+  }
+
+  async loadTodo(){
+   const loading = await this.loadingContoller.create({
+     message:'Loading ...'
    });
+   await loading.present(); 
+   this.todoService.getTodo(this.todoId).subscribe(res=>{
+     loading.dismiss();
+     this.todo = res;
+   });
+  }
+  async saveTodo(){
+    const loading = await this.loadingContoller.create({
+      message:'Saving ...'
+    });
+    await loading.present(); 
+    if(this.todoId){
+      //actualizar 
+      this.todoService.updateTodo(this.todo,this.todoId).then(()=>{
+        loading.dismiss();
+        this.nav.navigateForward('/');
+      });
+    }else{
+      //adicionar uno nuevo
+      this.todoService.addTodo(this.todo).then(()=>{
+        loading.dismiss();
+        this.nav.navigateForward('/');
+      });
+    }
+   }
+  remove(item){
+    this.todoService.removeTodo(item.id);
   }
  
   takePhoto(){

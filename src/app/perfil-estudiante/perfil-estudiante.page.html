@@ -12,18 +12,7 @@
         
       <ion-card-header class="card">
           <ion-card-title> Ingrese los datos de su perfil</ion-card-title>
-          <!--
-        <br >
-          <form  action="../../form-result.php" method="post" enctype="multipart/form-data" target="_blank" >
-              Sube una imagen:
-          
-              <input type="file" name="imagensubida" accept="image/png, .jpeg, .jpg, image/gif" >
-          
-              <input type="submit"value="Enviar datos">
-          
-          </form>
-          <br> -->
-
+  
           <ion-button (click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
           <ion-button (click)="getPhoto()" color="warning" class="getFoto"> Foto desde galeria</ion-button>
           <ion-label>  <img src="{{ myPhoto }}"/> </ion-label >
@@ -62,7 +51,7 @@
         <ion-input [(ngModel)]="hoja" type="file" color="warning" id="hoja_vida"> </ion-input>
 
         <ion-button (click)="setHojaVida()" color="warning" id="enviar">Enviar</ion-button>
-        <!--<ion-button (click)="getHojaVida()" color="warning" id="enviar">Cargar Datos</ion-button>-->
+        <ion-button (click)="getHojaVida()" color="warning" id="enviar">Cargar Datos</ion-button>
        
       </ion-item>
 
@@ -80,5 +69,19 @@
       <ion-button (click)="getText()" color="warning">Ver</ion-button>
       <ion-button (click)="btnAdd()" color="warning">Subir bd</ion-button>
       <ion-button color="warning"href="perfil-empresa()">EMPRESA</ion-button>
-    
+    <!--
+      <ion-list lines="full">
+        <ion-item *ngIf="todo">
+          <ion-input required type="text" placeholder="Task" [(ngModel)]="todo.task"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="todo">
+          <ion-input required type="number" placeholder="Priority" [(ngModel)]="todo.priority"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button expand="full" (click)="saveTodo()"  color="dark">Save</ion-button>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="danger">
+          <ion-fab-button color="danger" (click)="onRemoveTodo(todoId)" routerLink="/" routerDirection="forward">
+              <ion-icon name="trash"></ion-icon>
+          </ion-fab-button>
+        </ion-fab> -->
   </ion-content>

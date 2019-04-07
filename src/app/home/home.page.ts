@@ -1,22 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { Storage } from '@ionic/storage';
-
+import{Todo, TodoService} from './../services/todo.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
- constructor(private storage: Storage,public router: Router){
+export class HomePage implements OnInit{
+  todos: Todo[];
+ constructor(private storage: Storage,public router: Router,private todoService:TodoService){
  }
 
- login(){
-   this.storage.set('name', 'Max');
-   this.storage.get('age').then((val) => {
-    console.log('Your age is', val);
+ ngOnInit(){
+  this.todoService.getTodos().subscribe(res =>{
+    this.todos = res;
+    console.log(this.todos);
     });
-    
-  this.router.navigate(['../login']);
  }
+
+ 
 }
