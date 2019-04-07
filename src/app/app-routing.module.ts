@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'perfil-estudiante', loadChildren: './perfil-estudiante/perfil-estudiante.module#PerfilEstudiantePageModule' },
   { path: 'perfil-estudiante/:id', loadChildren: './perfil-estudiante/perfil-estudiante.module#PerfilEstudiantePageModule' },
   { path: 'perfil-empresa', loadChildren: './perfil-empresa/perfil-empresa.module#PerfilEmpresaPageModule' },
+  { path: 'perfil-empresa/:id', loadChildren: './perfil-empresa/perfil-empresa.module#PerfilEmpresaPageModule' },
   { path: 'login-empresa', loadChildren: './login-empresa/login-empresa.module#LoginEmpresaPageModule' },
   { path: 'crear-estudiante', loadChildren: './crear-estudiante/crear-estudiante.module#CrearEstudiantePageModule' },
   { path: 'descripcion', loadChildren: './descripcion/descripcion.module#DescripcionPageModule' },
