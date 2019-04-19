@@ -1,61 +1,68 @@
 <ion-header>
-  <ion-toolbar  color="warning">
-      <ion-button color="warning" href="login-empresa()">
-          <ion-icon name="arrow-dropleft" color="dark"></ion-icon>
-       </ion-button>
+  <ion-toolbar color="warning">
+    <ion-button color="warning" href="login-empresa()">
+      <ion-icon name="arrow-dropleft" color="dark"></ion-icon>
+    </ion-button>
     <ion-title>Student Work</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="bg-image">
-  <ion-card> 
-        <ion-card-header class="card" >
-            <ion-card-title> Ingrese oferta laboral</ion-card-title>
-        
- <br>
-     <ion-button (click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
-     <ion-button (click)="getPhoto()" color="warning" class="getFoto"> Galeria</ion-button>
-     <p>  <img src="{{ myPhoto }}"/> </p>
+  <ion-card>
+    <ion-card-header class="card">
+      <ion-card-title> Ingrese oferta laboral</ion-card-title>
 
-     <ion-list lines="full">
-      <ion-item *ngIf="empleo">
-        <ion-label position="floating"color="dark">
-          <ion-icon name="person" item-left color="warning"></ion-icon> Cargo
-        </ion-label>
+      <br>
+      <ion-button (click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
+      <ion-button (click)="getPhoto()" color="warning" class="getFoto"> Galeria</ion-button>
+      <p> <img src="{{ myPhoto }}" /> </p>
+
+      <ion-list lines="full">
+
+        <ion-item *ngIf="empleo">
+          <ion-label position="floating" color="dark">
+            <ion-icon name="briefcase" item-left color="warning"></ion-icon> Nombre empresa
+          </ion-label>
+          <ion-input required type="text" [(ngModel)]="empleo.nombre"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="empleo">
+          <ion-label position="floating" color="dark">
+            <ion-icon name="person" item-left color="warning"></ion-icon> Cargo
+          </ion-label>
           <ion-input required type="text" [(ngModel)]="empleo.cargo"></ion-input>
-      </ion-item>
-    
-      <ion-item *ngIf="empleo">
-        <ion-label position="floating"color="dark">
-          <ion-icon name="book" item-left color="warning"></ion-icon> Descrpción
-        </ion-label>
-        <ion-input required type="text"  [(ngModel)]="empleo.descripcion"></ion-input>
-      </ion-item>
+        </ion-item>
 
-      <ion-item *ngIf="empleo">
-        <ion-label position="floating"color="dark">
-          <ion-icon name="trending-up" item-left color="warning"></ion-icon>Salario
-        </ion-label>
-        <ion-input required type="text"  [(ngModel)]="empleo.salario"></ion-input>
-      </ion-item>
+        <ion-item *ngIf="empleo">
+          <ion-label position="floating" color="dark">
+            <ion-icon name="book" item-left color="warning"></ion-icon> Descrpción
+          </ion-label>
+          <ion-input required type="text" [(ngModel)]="empleo.descripcion"></ion-input>
+        </ion-item>
 
-      <ion-item *ngIf="empleo"> 
-        <ion-label position="floating"color="dark">
-          <ion-icon name="alarm" item-left color="warning"></ion-icon>Horario
-        </ion-label>
+        <ion-item *ngIf="empleo">
+          <ion-label position="floating" color="dark">
+            <ion-icon name="trending-up" item-left color="warning"></ion-icon>Salario
+          </ion-label>
+          <ion-input required type="text" [(ngModel)]="empleo.salario"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="empleo">
+          <ion-label position="floating" color="dark">
+            <ion-icon name="alarm" item-left color="warning"></ion-icon>Horario
+          </ion-label>
           <ion-input required type="text" [(ngModel)]="empleo.horario"></ion-input>
-      </ion-item>
+        </ion-item>
 
-    </ion-list>
-    <ion-button class="boton1" color=dark shape="round" (click)="saveTodo()" >Save</ion-button>
+      </ion-list>
+      <ion-button class="boton1" color=dark shape="round" (click)="saveTodo()">Enviar</ion-button>
 
-</ion-card-header>
-</ion-card> 
+    </ion-card-header>
+  </ion-card>
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed" color="dark">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="dark">
     <ion-fab-button color="dark" (click)="onRemoveEmpleo(empleoId)" routerLink="/empleo" routerDirection="forward">
-        <ion-icon name="trash"></ion-icon>
+      <ion-icon name="trash"></ion-icon>
     </ion-fab-button>
-  </ion-fab> 
+  </ion-fab>
 
 </ion-content>
