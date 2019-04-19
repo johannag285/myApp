@@ -5,6 +5,7 @@ import{ AngularFireDatabase } from 'angularfire2/database';
 import{Todo, TodoService} from './../services/todo.service';
 import{ActivatedRoute} from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
+import{AuthService} from "../servicios/auth.service"
 
 
 @Component({
@@ -32,7 +33,7 @@ export class PerfilEstudiantePage implements OnInit {
     'detalle':""
   }
  
-  constructor(private camera: Camera) {}
+  constructor(private camera: Camera, public authservice : AuthService) {}
 
  
   ngOnInit() {}
@@ -110,6 +111,10 @@ export class PerfilEstudiantePage implements OnInit {
     /*this.storage.get('myData').then((val) => {
       console.log('Datos', val);
       });*/
+  }
+
+  OnLogout(){
+    this.authservice.logout();
   }
 
 }

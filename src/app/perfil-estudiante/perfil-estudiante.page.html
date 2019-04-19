@@ -1,9 +1,12 @@
 <ion-header>
     <ion-toolbar color="warning">
-        <ion-button color="warning" href="login()">
+        <ion-button color="warning" slot="start" fill="outline" href="login()">
             <ion-icon name="arrow-dropleft" color="dark"></ion-icon>
          </ion-button>
-      <ion-title>Student Work</ion-title>
+         <ion-button slot="end"  shape="round" fill="outline" color="warning" (click)="OnLogout()">
+          <ion-icon  ios="ios-log-out" md="md-log-out" color="dark"></ion-icon>
+       </ion-button>
+      <ion-title id="titulo">Student Work</ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -12,9 +15,10 @@
         
       <ion-card-header class="card">
           <ion-card-title> Ingrese los datos de su perfil</ion-card-title>
-  
-          <ion-button (click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
-          <ion-button (click)="getPhoto()" color="warning" class="getFoto"> Foto desde galeria</ion-button>
+          <br>
+          <br>
+          <ion-button (click)="takePhoto()" expand="block"color="warning" class="tomarFoto">Tomar foto</ion-button>
+          <ion-button (click)="getPhoto()"  expand="block"color="warning" class="getFoto"> Foto desde galeria</ion-button>
           <ion-label>  <img src="{{ myPhoto }}"/> </ion-label >
         <ion-item>
           <ion-label position="floating" color="dark">Tú nombre</ion-label>
