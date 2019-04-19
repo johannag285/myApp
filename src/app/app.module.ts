@@ -11,19 +11,40 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { HttpClientModule } from '@angular/common/http';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { File } from '@ionic-native/File/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+
+
+const firebase = {
+  apiKey: "AIzaSyBx7HgpSxnlCc63tmOA9PuxKRWiPmUcDKA",
+  authDomain: "proyectomyapp-236122.firebaseapp.com",
+  databaseURL: "https://proyectomyapp-236122.firebaseio.com",
+  projectId: "proyectomyapp-236122",
+  storageBucket: "proyectomyapp-236122.appspot.com",
+  messagingSenderId: "179293260182"
+}
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot()
-    , AppRoutingModule, AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule,AngularFireStorageModule],
+    , AppRoutingModule, AngularFireModule.initializeApp(firebase),
+    AngularFirestoreModule, AngularFireStorageModule, AngularFireDatabaseModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    File,
+    WebView,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
