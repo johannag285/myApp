@@ -1,29 +1,17 @@
 
-  .boton1 {
-    background-position:  center center;
-    margin-block-end:-1200px;
-    margin-left: 105px;
-    text-align: center;
-    position: sticky;
-  }
-  .boton2 {
-    background-position:  center center;
-    margin-block-end: -1135px;
-    margin-left: 105px;
-    text-align: center;
-    position: sticky;
-   
-   
-  }
+.boton1 {
+  display: block;
+    
+}
+.boton2 {
+  display: block;
+  margin-top: 140%;
+}
 
 .bg-image{
   --background: url('../home/imagenes/fondo1.jpg') no-repeat center center / cover;
 }
-.contenedor{
-    position: fixed;
-    display: inline-block;
-   
-}
+
 
 
 

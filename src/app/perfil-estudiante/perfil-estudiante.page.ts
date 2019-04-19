@@ -5,6 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { TodoService, Estudiante } from './../services/todo.service';
 import { ActivatedRoute } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
+import{AuthService} from "../servicios/auth.service"
 
 
 
@@ -29,7 +30,7 @@ export class PerfilEstudiantePage implements OnInit {
   estudianteId = null;
 
   constructor(private camera: Camera, private todoService: TodoService, private router: ActivatedRoute,
-    private nav: NavController, private loadingContoller: LoadingController) { }
+    private nav: NavController, private loadingContoller: LoadingController,public authservice : AuthService) { }
 
 
   ngOnInit() {
@@ -38,6 +39,8 @@ export class PerfilEstudiantePage implements OnInit {
       this.loadTodo();
     }
   }
+ 
+
 
   async loadTodo() {
     const loading = await this.loadingContoller.create({
@@ -119,5 +122,9 @@ export class PerfilEstudiantePage implements OnInit {
 
 
 
+
+  OnLogout(){
+    this.authservice.logout();
+  }
 
 }
