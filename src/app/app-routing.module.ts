@@ -15,6 +15,8 @@ const routes: Routes = [
   { path: 'crear-estudiante', loadChildren: './crear-estudiante/crear-estudiante.module#CrearEstudiantePageModule' },
   { path: 'descripcion', loadChildren: './descripcion/descripcion.module#DescripcionPageModule' },
   { path: 'descripcion2', loadChildren: './descripcion2/descripcion2.module#Descripcion2PageModule' },
+  { path: 'datos-perfil-estudiante', loadChildren: './datos-perfil-estudiante/datos-perfil-estudiante.module#DatosPerfilEstudiantePageModule' },
+
 
 
 ];
