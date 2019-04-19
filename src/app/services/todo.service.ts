@@ -5,13 +5,9 @@ import { map } from 'rxjs/operators';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
 
-export interface Todo {
-  id?: string;
-  task: string;
-  priority: string;
-}
 export interface Empleo {
   id?: string;
+  nombre: string;
   imagen: string;
   cargo: string;
   descripcion: string;
@@ -19,30 +15,34 @@ export interface Empleo {
   horario: string;
 }
 
+export interface Estudiante{
+  id?: string;
+  imagen: string;
+  nombre: string;
+  profesion: string;
+  ciudad: string;
+  descripcion: string;
+  hv: string;
+}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-  private todosCollection: AngularFirestoreCollection<Todo>;
-  private todos: Observable<Todo[]>;
 
   private empleosCollection: AngularFirestoreCollection<Empleo>;
   private empleos: Observable<Empleo[]>;
 
-  constructor(db: AngularFirestore, private dbFire: AngularFireDatabase, private afStorage: AngularFireStorage) {
-    this.todosCollection = db.collection<Todo>('todos');
-    this.empleosCollection = db.collection<Empleo>('empleos');
+  private estudiantesCollection: AngularFirestoreCollection<Estudiante>;
+  private estudiantes: Observable<Estudiante[]>;
 
-    this.todos = this.todosCollection.snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        });
-      })
-    );
+  constructor(db: AngularFirestore, private dbFire: AngularFireDatabase,
+     private afStorage: AngularFireStorage) {
+
+   
+    this.empleosCollection = db.collection<Empleo>('empleos');
+    this.estudiantesCollection = db.collection<Estudiante>('estudiantes');
 
 
     this.empleos = this.empleosCollection.snapshotChanges().pipe(
@@ -54,24 +54,29 @@ export class TodoService {
         });
       })
     );
+
+
+    this.estudiantes = this.estudiantesCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
   }
 
 
 
-  getTodos() {
-    return this.todos;
-  }
-
-  getTodo(id) {
-    return this.todosCollection.doc<Todo>(id).valueChanges();
-  }
+  
 
   //métodos para el crud de empleo
   getEmpleos() {
     return this.empleos;
   }
 
-  getEmpleo(id) {
+  getEmpleo(id: string) {
     return this.empleosCollection.doc<Empleo>(id).valueChanges();
   }
 
@@ -83,11 +88,32 @@ export class TodoService {
     return this.empleosCollection.add(empleo);
   }
 
-  removeEmpleo(id) {
+  removeEmpleo(id: string) {
     return this.empleosCollection.doc(id).delete();
   }
 
-  //métodos para actualizar, cargar y elminar una imagen
+   //métodos para el crud de estudiante
+   getEstudiantes() {
+    return this.estudiantes;
+  }
+
+  getEstudiante(id: string) {
+    return this.estudiantesCollection.doc<Estudiante>(id).valueChanges();
+  }
+
+  updateEstudiante(estudiante: Estudiante, id: string) {
+    return this.estudiantesCollection.doc(id).update(estudiante);
+  }
+
+  addEstudiante(estudiante: Estudiante) {
+    return this.estudiantesCollection.add(estudiante);
+  }
+
+  removeEstudiante(id: string) {
+    return this.estudiantesCollection.doc(id).delete();
+  }
+
+  //métodos para actualizar, cargar y elminar un archivo
   getFiles() {
     let ref = this.dbFire.list('files');
 
