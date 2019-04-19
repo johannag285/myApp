@@ -66,18 +66,6 @@ export class TodoService {
     return this.todosCollection.doc<Todo>(id).valueChanges();
   }
 
-  updateTodo(todo: Todo, id: string) {
-    return this.todosCollection.doc(id).update(todo);
-  }
-
-  addTodo(todo: Todo) {
-    return this.todosCollection.add(todo);
-  }
-
-  removeTodo(id) {
-    return this.todosCollection.doc(id).delete();
-  }
-
   //métodos para el crud de empleo
   getEmpleos() {
     return this.empleos;

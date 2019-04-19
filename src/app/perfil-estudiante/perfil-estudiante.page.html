@@ -1,72 +1,78 @@
 <ion-header>
-    <ion-toolbar color="warning">
-        <ion-button color="warning" href="login()">
-            <ion-icon name="arrow-dropleft" color="dark"></ion-icon>
-         </ion-button>
-      <ion-title>Student Work</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding class ="bg-image">
-    <ion-card>
-        
-      <ion-card-header class="card">
-          <ion-card-title> Ingrese los datos de su perfil</ion-card-title>
-  
-          <ion-button (click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
-          <ion-button (click)="getPhoto()" color="warning" class="getFoto"> Foto desde galeria</ion-button>
-          <ion-label>  <img src="{{ myPhoto }}"/> </ion-label >
-        <ion-item>
-          <ion-label position="floating" color="dark">Tú nombre</ion-label>
-          <ion-input clearInput type="text" [(ngModel)]="text1" pattern="text"></ion-input>
+  <ion-toolbar color="warning">
+    <ion-button color="warning" href="login()">
+      <ion-icon name="arrow-dropleft" color="dark"></ion-icon>
+    </ion-button>
+    <ion-title>Student Work</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="bg-image">
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button href="empleo()" color="dark">
+      <ion-icon name="briefcase"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card>
+    <ion-card-header class="card">
+      <ion-card-title> Ingrese los datos de su perfil</ion-card-title>
+      <br>
+      <ion-button (click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
+      <ion-button (click)="getPhoto()" color="warning" class="getFoto"> Galeria</ion-button>
+      <ion-label> <img src="{{ myPhoto }}" /> </ion-label>
+
+      <ion-list lines="full">
+        <ion-item *ngIf="estudiante">
+          <ion-label position="floating" color="dark">
+            <ion-icon name="person" item-left color="shape" color="warning"></ion-icon>Tú nombre
+          </ion-label>
+          <ion-input required type="text" [(ngModel)]="estudiante.nombre"></ion-input>
         </ion-item>
 
-        <ion-item>
-            <ion-label position="floating" color="dark">Tú Profesión</ion-label>
-            <ion-input clearInput type="text" [(ngModel)]="text2" pattern="text"></ion-input>
+        <ion-item *ngIf="estudiante">
+          <ion-label position="floating" color="dark">
+            <ion-icon name="briefcase" item-left color="shape" color="warning"></ion-icon>Tú Profesión
+          </ion-label>
+          <ion-input required type="text" [(ngModel)]="estudiante.profesion"></ion-input>
         </ion-item>
 
-          <ion-item>
-              <ion-label position="floating"color="dark">Tú Ciudad actual</ion-label>
-              <ion-input clearInput type="text" [(ngModel)]="text3" pattern="text"></ion-input>
-            </ion-item>
-        
-        
-      </ion-card-header>
-    
-      <ion-card-content text-justify class="card">
-          <ion-item>
-              <ion-label position="floating" color="dark">Cuentanos sobre ti</ion-label>
-              <ion-input clearInput type="text" [(ngModel)]="text4" pattern="text"></ion-input>
-          </ion-item>
-      </ion-card-content>
-    </ion-card>
-    
-    <ion-card >
-   
-      <ion-item>
-        <ion-icon name="list-box" slot="start" color ="warning"></ion-icon>
-        <ion-label color="warning">Hoja de vida</ion-label>
-    
-        <ion-input [(ngModel)]="hoja" type="file" color="warning" id="hoja_vida"> </ion-input>
+        <ion-item *ngIf="estudiante">
+          <ion-label position="floating" color="dark">
+            <ion-icon name="star" item-left color="shape" color="warning"></ion-icon>Tú Ciudad actual
+          </ion-label>
+          <ion-input required type="text" [(ngModel)]="estudiante.ciudad"></ion-input>
+        </ion-item>
 
-        <ion-button (click)="setHojaVida()" color="warning" id="enviar">Enviar</ion-button>
-        <ion-button (click)="getHojaVida()" color="warning" id="enviar">Cargar Datos</ion-button>
-       
-      </ion-item>
 
-     
+        <ion-item *ngIf="estudiante">
+          <ion-label position="floating" color="dark">
+            <ion-icon name="book" item-left color="warning"></ion-icon>Cuentanos sobre ti
+          </ion-label>
+          <ion-input required type="text" [(ngModel)]="estudiante.descripcion"></ion-input>
+        </ion-item>
 
-     
-    </ion-card>
-    
-      <ion-fab vertical="top" horizontal="end"  slot="fixed">
-        <ion-fab-button href="empleo()" color ="dark" >
-          <ion-icon  name="briefcase" ></ion-icon>
-        </ion-fab-button>
-      </ion-fab>
-      <ion-button (click)="setText()" color="warning">Subir</ion-button>
-      <ion-button (click)="getText()" color="warning">Ver</ion-button>
-      <ion-button (click)="btnAdd()" color="warning">Subir bd</ion-button>
-      <ion-button color="warning"href="perfil-empresa()">EMPRESA</ion-button>
-  </ion-content>
+
+        <ion-item *ngIf="estudiante">
+          <ion-icon class="icon1" name="list-box" slot="start" color="warning"></ion-icon>
+          <ion-label class="label1">HV</ion-label>
+          <ion-input required class="inPut1" type="file" multiple [(ngModel)]="estudiante.hv"> </ion-input>
+        </ion-item>
+
+      </ion-list>
+      <ion-button class="boton1" color=dark shape="round" (click)="saveTodo()">Enviar</ion-button>
+    </ion-card-header>
+  </ion-card>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="dark">
+    <ion-fab-button color="dark" (click)="onRemoveEstudiante(estudianteId)" routerLink="/datos-perfil-estudiante"
+      routerDirection="forward">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+</ion-content>
