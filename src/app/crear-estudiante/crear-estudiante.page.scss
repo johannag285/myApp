@@ -3,12 +3,18 @@
   }
 
   .boton1{
-    margin:10px;
-    margin-left: 120px;
+    display: block;
     color: black;  
 }
 
   .card {
     background-color: #fff   ;
     box-shadow: none;
+  }
+  #iconologin{
+    width: 220px;
+    height: 220px;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
   }
