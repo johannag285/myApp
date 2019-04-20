@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
-
+import{ AngularFireAuthModule } from '@angular/fire/auth';
 
 const firebase = {
   apiKey: "AIzaSyBx7HgpSxnlCc63tmOA9PuxKRWiPmUcDKA",
@@ -32,7 +32,7 @@ const firebase = {
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot()
     , AppRoutingModule, AngularFireModule.initializeApp(firebase),
-    AngularFirestoreModule, AngularFireStorageModule, AngularFireDatabaseModule, HttpClientModule],
+    AngularFirestoreModule, AngularFireAuthModule,AngularFireStorageModule, AngularFireDatabaseModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,

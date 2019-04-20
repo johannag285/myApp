@@ -120,9 +120,6 @@ export class PerfilEstudiantePage implements OnInit {
   }
 
 
-
-
-
   OnLogout(){
     this.authservice.logout();
   }

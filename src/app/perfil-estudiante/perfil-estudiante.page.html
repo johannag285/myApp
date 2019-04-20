@@ -1,7 +1,10 @@
 <ion-header>
   <ion-toolbar color="warning">
-    <ion-button color="warning" href="login()">
+    <ion-button color="warning" slot="start"fill="outline" href="login()">
       <ion-icon name="arrow-dropleft" color="dark"></ion-icon>
+    </ion-button>
+    <ion-button color="warning"slot="end"  shape="round" fill="outline" (click)="OnLogout()">
+      <ion-icon ios="ios-log-out" md="md-log-out" color="dark"></ion-icon>
     </ion-button>
     <ion-title>Student Work</ion-title>
   </ion-toolbar>
@@ -17,10 +20,11 @@
 
   <ion-card>
     <ion-card-header class="card">
-      <ion-card-title> Ingrese los datos de su perfil</ion-card-title>
+      <ion-card-title > Ingrese los datos de su perfil</ion-card-title>
       <br>
-      <ion-button (click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
-      <ion-button (click)="getPhoto()" color="warning" class="getFoto"> Galeria</ion-button>
+      <br>
+      <ion-button shape="round"(click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
+      <ion-button shape="round" (click)="getPhoto()"color="warning" class="getFoto"> Galeria</ion-button>
       <ion-label> <img src="{{ myPhoto }}" /> </ion-label>
 
       <ion-list lines="full">
@@ -53,13 +57,13 @@
           <ion-input required type="text" [(ngModel)]="estudiante.descripcion"></ion-input>
         </ion-item>
 
-
+        <br>
         <ion-item *ngIf="estudiante">
           <ion-icon class="icon1" name="list-box" slot="start" color="warning"></ion-icon>
           <ion-label class="label1">HV</ion-label>
           <ion-input required class="inPut1" type="file" multiple [(ngModel)]="estudiante.hv"> </ion-input>
         </ion-item>
-
+        <br>
       </ion-list>
       <ion-button class="boton1" color=dark shape="round" (click)="saveTodo()">Enviar</ion-button>
     </ion-card-header>
