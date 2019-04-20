@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar  color="warning">
-      <ion-button color="warning" href="login()">
+      <ion-button slot="start"color="warning" href="login()"fill="outline">
           <ion-icon name="arrow-dropleft" color="dark"></ion-icon>
        </ion-button>
     <ion-title> Student Work</ion-title>
@@ -8,32 +8,26 @@
 </ion-header>
 
 <ion-content padding class="bg-image">
+  <ion-icon id="iconologin"name="briefcase" color="warning"></ion-icon>
   <ion-card class="card">
     <ion-card-header class="card">
       <ion-card-title> Iniciar Sesión</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-        <ion-item>
-      <ion-label position="floating">
-        <ion-icon name="briefcase" item-left color="shape" color="warning"></ion-icon>Nombre Empresa
-      </ion-label>
-      <ion-input clearInput type="email" pattern="email"></ion-input>
-      </ion-item>
       <ion-item>
         <ion-label position="floating">
-          <ion-icon name="person" item-left color="shape" color="warning"></ion-icon>Correo
-        </ion-label>
-        <ion-input clearInput type="email" pattern="email"></ion-input>
+          <ion-icon name="person" item-left color="shape" color="warning"></ion-icon>Correo Electrónico</ion-label>
+          <ion-input clearInput type="text"[(ngModel)]="email" name="email" pattern="email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">
           <ion-icon name="key" color="warning" item-left></ion-icon>Contraseña
         </ion-label>
-        <ion-input type="password" pattern="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="password" name="password"pattern="password"></ion-input>
       </ion-item>
-      <ion-button id="ingresar" shape="round" color="dark" href="perfil-empresa()">Ingresar</ion-button>
-      <ion-button id="crear" slot="end" shape="round" color="dark" fill="outline" href="crear()">Crear perfil
-      </ion-button>
+      <br>
+      <ion-button id="ingresar"expand="block" shape="round" color="dark" (click)="onSubmitLoginEmpresa()">Ingresar</ion-button>
+      <ion-button  id="crear" expand="block"slot="end" shape="round" color="dark" fill="outline" href="crear()">Crear perfil </ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

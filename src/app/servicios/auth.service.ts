@@ -22,4 +22,9 @@ export class AuthService {
       this.router.navigate(['/login']);
     })
   }
+  logoutEmpresa(){
+    this.AFauth.auth.signOut().then (() =>{
+      this.router.navigate(['/login-empresa']);
+    })
+  }
 }

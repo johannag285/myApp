@@ -6,15 +6,21 @@
     margin-top: 30px;
 }
 
-#crear {      
-  margin: 10px;
-  margin-left: 0px;
-  
-
+#crear { 
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #ingresar {   
-  margin: 10px;
-  margin-left: 8px;
-  
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#iconologin{
+  width: 220px;
+  height: 220px;
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
 }

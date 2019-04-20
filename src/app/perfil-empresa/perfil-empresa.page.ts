@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { storage } from 'firebase';
+import{AuthService} from "../servicios/auth.service"
 
 
 @Component({
@@ -29,7 +30,7 @@ export class PerfilEmpresaPage implements OnInit {
   files: Observable<any[]>;
 
   constructor(private camera: Camera, private todoService: TodoService, private router: ActivatedRoute,
-    private nav: NavController, private loadingContoller: LoadingController) {
+    private nav: NavController, private loadingContoller: LoadingController,public authservice : AuthService) {
     this.files = this.todoService.getFiles();
   }
 
@@ -121,5 +122,9 @@ export class PerfilEmpresaPage implements OnInit {
     }, (err) => {
       // Handle error
     });
+  }
+
+  OnLogout(){
+    this.authservice.logoutEmpresa();
   }
 }

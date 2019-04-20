@@ -1,8 +1,11 @@
 <ion-header>
   <ion-toolbar color="warning">
-    <ion-button color="warning" href="login-empresa()">
+    <ion-button color="warning"  slot="start"fill="outline"href="login-empresa()">
       <ion-icon name="arrow-dropleft" color="dark"></ion-icon>
     </ion-button>
+    <ion-button color="warning"slot="end"  shape="round" fill="outline" (click)="OnLogout()">
+        <ion-icon ios="ios-log-out" md="md-log-out" color="dark"></ion-icon>
+      </ion-button>
     <ion-title>Student Work</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,10 +14,10 @@
   <ion-card>
     <ion-card-header class="card">
       <ion-card-title> Ingrese oferta laboral</ion-card-title>
-
       <br>
-      <ion-button (click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
-      <ion-button (click)="getPhoto()" color="warning" class="getFoto"> Galeria</ion-button>
+      <br>
+      <ion-button shape="round"(click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
+      <ion-button shape="round"(click)="getPhoto()" color="warning" class="getFoto"> Galeria</ion-button>
       <p> <img src="{{ myPhoto }}" /> </p>
 
       <ion-list lines="full">
@@ -25,6 +28,7 @@
           </ion-label>
           <ion-input required type="text" [(ngModel)]="empleo.nombre"></ion-input>
         </ion-item>
+
         <ion-item *ngIf="empleo">
           <ion-label position="floating" color="dark">
             <ion-icon name="person" item-left color="warning"></ion-icon> Cargo
@@ -52,7 +56,7 @@
           </ion-label>
           <ion-input required type="text" [(ngModel)]="empleo.horario"></ion-input>
         </ion-item>
-
+      <br>
       </ion-list>
       <ion-button class="boton1" color=dark shape="round" (click)="saveTodo()">Enviar</ion-button>
 
