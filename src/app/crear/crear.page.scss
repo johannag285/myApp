@@ -1,16 +1,20 @@
 .boton1{
-    margin:10px;
-    margin-left: 120px;
-    color: black;  
+  display: block;
+  color: black;  
    
 }
-
-  .card {
-    background-color: #fff   ;
-    box-shadow: none;
-  }
+.card {
+  background-color: #fff   ;
+  box-shadow: none;
+}
   
-  .bg-image{
-    --background: url('../home/imagenes/fondoT.jpg') no-repeat center center / cover;
-  }
-  
+.bg-image{
+  --background: url('../home/imagenes/fondoT.jpg') no-repeat center center / cover;
+}
+#iconologin{
+  width: 220px;
+  height: 220px;
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
+}

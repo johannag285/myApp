@@ -17,14 +17,24 @@ export class AuthService {
       }).catch(err =>rejected(err))
     });  
   }
+
   logout(){
     this.AFauth.auth.signOut().then (() =>{
       this.router.navigate(['/login']);
     })
   }
+
   logoutEmpresa(){
     this.AFauth.auth.signOut().then (() =>{
       this.router.navigate(['/login-empresa']);
     })
+  }
+
+  register(email: string, password :string){
+    return new Promise((resolve, rejected) =>{
+    this.AFauth.auth.createUserWithEmailAndPassword(email,password).then(res=> {
+    resolve(res)
+      }).catch(err=>rejected(err))
+    }); 
   }
 }
