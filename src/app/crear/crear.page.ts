@@ -41,8 +41,6 @@ export class CrearPage implements OnInit {
 
   saveData(){
    // console.log(this.myForm.value)
-  //alert(JSON.stringify(this.myForm));
-
-
+  //alert(JSON.stringify(this.myForm))
   }
 }
