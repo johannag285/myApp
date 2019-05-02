@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{AuthService}from "../servicios/auth.service";
 import{Router} from "@angular/router";
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-crear-estudiante',
@@ -8,9 +9,27 @@ import{Router} from "@angular/router";
   styleUrls: ['./crear-estudiante.page.scss'],
 })
 export class CrearEstudiantePage implements OnInit {
+  myForm: FormGroup;
   public email:string;
   public password: string;
-  constructor(private auth:AuthService,private router:Router) { }
+  
+  constructor(private auth:AuthService,private router:Router,
+    private  fb: FormBuilder) {
+      this.myForm = this.fb.group({
+        email: new FormControl('', Validators.compose([
+          Validators.required,
+          Validators.email,
+          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+          Validators.minLength(8),
+          Validators.maxLength(45)
+        ])),
+      password: new FormControl( '',Validators.compose([
+        Validators.minLength(8),
+        Validators.required,
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
+        ])),
+    });
+   }
 
   ngOnInit() {
   }
@@ -19,6 +38,10 @@ export class CrearEstudiantePage implements OnInit {
      this.router.navigate(['perfil-estudiante'])
       console.log(auth)
     }).catch(err=>console.log(err))
+   }
+   saveData(){
+    // console.log(this.myForm.value)
+   //alert(JSON.stringify(this.myForm))
    }
 
 }
