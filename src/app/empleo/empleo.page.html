@@ -105,7 +105,7 @@
               </ion-item-sliding>
             </ion-list>
            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-              <ion-fab-button routerLink="/perfil-empresa" routerDirection="forward" color="dark">
+              <ion-fab-button routerLink="/perfil-empresa" routerDirection="forward" color="dark"  *ngIf="!showCreate"  >
                 <ion-icon name="add"></ion-icon>
               </ion-fab-button>
             </ion-fab>
