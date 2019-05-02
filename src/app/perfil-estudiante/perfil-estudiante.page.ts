@@ -3,7 +3,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Storage } from '@ionic/storage';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { TodoService, Estudiante } from './../services/todo.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
 import{AuthService} from "../servicios/auth.service"
 
@@ -30,7 +30,8 @@ export class PerfilEstudiantePage implements OnInit {
   estudianteId = null;
 
   constructor(private camera: Camera, private todoService: TodoService, private router: ActivatedRoute,
-    private nav: NavController, private loadingContoller: LoadingController,public authservice : AuthService) { }
+    private nav: NavController, private loadingContoller: LoadingController,
+    public authservice : AuthService, private storage: Storage, private routerr:Router) { }
 
 
   ngOnInit() {
@@ -123,5 +124,22 @@ export class PerfilEstudiantePage implements OnInit {
   OnLogout(){
     this.authservice.logout();
   }
+
+perfil:any;
+
+irAEmpleo(){
+  //escribir una bandera usando storage
+  //perfil = 'ESTUDIANTE' o perfil = 'EMPRESA'
+  //ir a empleo
+  this.storage.set('perfil',true);
+  this.storage.get('perfil').then((val)=>{
+      this.perfil = val;
+      console.log('NEXT PAGE', val);
+     
+    
+  });
+  this.routerr.navigate(['../empleo']);
+
+}
 
 }
