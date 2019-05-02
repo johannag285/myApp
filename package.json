@@ -31,6 +31,7 @@
     "@ionic/storage": "^2.2.0",
     "angularfire2": "^5.1.2",
     "cordova-android": "8.0.0",
+    "cordova-fabric-plugin": "1.1.14-dev",
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-file": "6.0.1",
@@ -86,7 +87,11 @@
       "cordova-plugin-camera": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-firebase": {},
-      "cordova-plugin-file": {}
+      "cordova-plugin-file": {},
+      "cordova-fabric-plugin": {
+        "FABRIC_API_KEY": "64d39236a257a398f55b5ca7f857ca2ce58f0bad",
+        "FABRIC_API_SECRET": "64d39236a257a398f55b5ca7f857ca2ce58f0bad"
+      }
     },
     "platforms": [
       "android"
