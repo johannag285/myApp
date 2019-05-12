@@ -136,7 +136,6 @@ irAEmpleo(){
       this.perfil = val;
       console.log('NEXT PAGE', val);
      
-    
   });
   this.routerr.navigate(['../empleo']);
 

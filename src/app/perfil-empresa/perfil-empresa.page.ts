@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 import { storage } from 'firebase';
 import{AuthService} from "../servicios/auth.service"
 
-
 @Component({
   selector: 'app-perfil-empresa',
   templateUrl: './perfil-empresa.page.html',
@@ -15,7 +14,6 @@ import{AuthService} from "../servicios/auth.service"
 })
 export class PerfilEmpresaPage implements OnInit {
 
-  myPhoto: any;
 
   empleo: Empleo = {
     nombre:'',
