@@ -131,12 +131,8 @@ irAEmpleo(){
   //escribir una bandera usando storage
   //perfil = 'ESTUDIANTE' o perfil = 'EMPRESA'
   //ir a empleo
-  this.storage.set('perfil',true);
-  this.storage.get('perfil').then((val)=>{
-      this.perfil = val;
-      console.log('NEXT PAGE', val);
-     
-  });
+ 
+  localStorage.setItem('estudiante','1');
   this.routerr.navigate(['../empleo']);
 
 }
