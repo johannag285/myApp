@@ -18,18 +18,39 @@ export class CrearEstudiantePage implements OnInit {
       this.myForm = this.fb.group({
         email: new FormControl('', Validators.compose([
           Validators.required,
-          Validators.email,
-          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
-          Validators.minLength(8),
-          Validators.maxLength(45)
+          CrearEstudiantePage.isValidEmail
         ])),
       password: new FormControl( '',Validators.compose([
-        Validators.minLength(8),
         Validators.required,
-        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
+        CrearEstudiantePage.isValidPassword
         ])),
     });
    }
+   static isValidEmail(control: FormControl){
+ 
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      let result = re.test(control.value);
+      
+      if (!result) {
+        return {
+          'email:validation:fail' : true
+        }
+      }
+      
+      return null;
+  }
+  static isValidPassword(control: FormControl){
+ 
+    let re = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+      let result = re.test(control.value);
+      
+      if (!result) {
+        return {
+          'Password:validation:fail' : true
+        }
+      }
+      return null;
+  }
 
   ngOnInit() {
   }
