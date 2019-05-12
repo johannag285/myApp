@@ -8,11 +8,13 @@ import { Empleo, TodoService } from './../services/todo.service';
 export class EmpleoPage implements OnInit {
   showCreate =false;
   empleos: Empleo[];
+  esEstudiante = '';
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
     //leo la variable del storage
-     let variable;
+    this.esEstudiante = localStorage.getItem('estudiante');
+    let variable;
      if(variable == true){
        this.showCreate = true;
      }

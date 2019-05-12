@@ -9,87 +9,22 @@
 
 <ion-content padding class="bg-image">
  
-  <!--  <ion-card class="card" > 
-        <ion-card-header> 
-            <ion-img src="assets/icon/empresa1.jpg" ></ion-img>
-          <ion-card-subtitle   color="medium">Hace una semana </ion-card-subtitle>
-          <ion-card-title>Se solicita Analista de calidad </ion-card-title> 
-          <ion-card-subtitle color="warning">PERSOM S.A.S</ion-card-subtitle> 
-        </ion-card-header>
-        <ion-card-content text-justify>
-            Empresa de plàsticos requiere ANALISTA DE CALIDAD 
-            con certificación como Auditor ISO 2015, PROFESIONAL 
-            en ingeniería industrial o carreras que tengan afinidad
-            al sector de plàsticos. 
-            <ion-button shape="round" href="descripcion2()" color="dark" >Ver más</ion-button>
-            <ion-icon  class="tiempo"name="briefcase" slot="start" color="warning"></ion-icon>
-              <ion-label color="warning">Tiempo completo</ion-label>
-      </ion-card-content > 
-      </ion-card >
-      <ion-card class="card"> 
-          <ion-card-header> 
-              <ion-img src="assets/icon/empresa2.jpg" ></ion-img>
-            <ion-card-subtitle  color="medium">Hace 2 días </ion-card-subtitle>
-            <ion-card-title>Se solicita Desarrollador Web.</ion-card-title> 
-            <ion-card-subtitle color="warning">KRONO TIME S.A.S</ion-card-subtitle> 
-          </ion-card-header>
-          <ion-card-content text-justify>
-              Importante empresa del sector logistico, requiere de manera 
-              urgente una persona para el área de sistemas, quien apoyará 
-              el proceso de soporte, mantenimineto y TIC'S de la compañia.
-              <ion-button shape="round"  color="dark" >Ver más</ion-button>
-              <ion-icon  class="tiempo" name="briefcase" slot="start" color="warning"></ion-icon>
-              <ion-label color="warning">Tiempo parcial</ion-label>
-        </ion-card-content > 
-        </ion-card >
-        <ion-card class="card"> 
-            <ion-card-header>
-                <ion-img src="assets/icon/empresa3.png" ></ion-img> 
-              <ion-card-subtitle  color="medium">Empleo nuevo</ion-card-subtitle>
-              <ion-card-title>Se solicita Desarrollador Web.</ion-card-title>
-              <ion-card-subtitle color="warning">GRUPO SOLUCIONES HORIZONTE</ion-card-subtitle> 
-            </ion-card-header>
-            <ion-card-content text-justify>
-                Persona activa y con interés de aprendizaje esperando que el empleado
-                este en la capacidad de desarrollar los proyectos en cualquier lenguaje
-                de programación (aprendizaje de la compañía).
-                <ion-button shape="round"   color="dark" >Ver más</ion-button>
-                <ion-icon  class="tiempo" name="briefcase" slot="start"color="warning"></ion-icon>
-                <ion-label color="warning">Tiempo completo</ion-label>
-              </ion-card-content > 
-            </ion-card >
-            <ion-card class="card"> 
-                <ion-card-header>
-                    <ion-img src="assets/icon/empresa4.png" ></ion-img> 
-                  <ion-card-subtitle  color="medium">Empleo nuevo</ion-card-subtitle>
-                  <ion-card-title>Se solicita Desarrollador de Software Urgente.</ion-card-title>
-                  <ion-card-subtitle color="warning" >GRUPO ACCION PLUS</ion-card-subtitle> 
-                </ion-card-header>
-                <ion-card-content text-justify>
-                    Importante empresa requiere profesional en Ingeniería de Sistemas o 
-                    carreras afines con, experiencia reciente mínima de dos años como 
-                    desarrollador de software en DELPHI y .NET, en proyectos BCP y 
-                    SGSI – 27001 y CE 052.
-                    <ion-button shape="round"  color="dark" >Ver más</ion-button>
-                    <ion-icon  class="tiempo"name="briefcase" slot="start"color="warning"></ion-icon>
-                    <ion-label color="warning">Tiempo parcial</ion-label>
-              </ion-card-content >
-            </ion-card >-->
-
-
             <ion-list>
     
               <ion-item-sliding *ngFor="let empleo of empleos">
                 <ion-item lines="inset" button [routerLink]="['/perfil-empresa', empleo.id]">
+                  <ion-label>
+                    {{ empleo.nombre }}
+                  </ion-label>
                   <ion-label>
                     {{ empleo.cargo }}
                   </ion-label>
                   <ion-label>
                     {{ empleo.descripcion }}
                   </ion-label>
-                  <!--<ion-note slot="end" color="primary">{{ empleo.descripcion }}</ion-note>-->
+                  
                   <ion-label>
-                    {{ empleo.salario }}
+                    {{ empleo.salario | currency:"COP":"$" }}
                   </ion-label>
                   <ion-label>
                     {{ empleo.horario }}
@@ -104,9 +39,9 @@
                 </ion-item-options>
               </ion-item-sliding>
             </ion-list>
-           <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-              <ion-fab-button routerLink="/perfil-empresa" routerDirection="forward" color="dark"  *ngIf="!showCreate"  >
+          <ion-fab vertical="bottom"  horizontal="end" slot="fixed">
+              <ion-fab-button routerLink="/perfil-empresa" routerDirection="forward" color="dark" >
                 <ion-icon name="add"></ion-icon>
               </ion-fab-button>
-            </ion-fab>
+          </ion-fab>
 </ion-content>
