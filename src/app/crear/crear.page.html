@@ -23,9 +23,7 @@
   </ion-item>
       <div *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
           <p color="danger" ion-text *ngIf="myForm.get('email').hasError('required')"> Ingrese su correo electrónico</p>
-          <p color="danger" ion-text *ngIf="myForm.get('email').hasError('email')">El correo electrónico no es valido</p>
-          <p color="danger" ion-text *ngIf="myForm.get('email').hasError('minLength')">El correo electrónico no puede tener menos de 8 caracteres</p>
-          <p color="danger" ion-text *ngIf="myForm.get('email').hasError('maxLength')">El correo electrónico no puede tener más de 45 caracteres</p>
+          <p color="danger" ion-text *ngIf="myForm.get('email').hasError('isValidEmail')">El correo electrónico no es valido</p>
       </div>
   <ion-item>
     <ion-label position="floating">
@@ -35,8 +33,8 @@
   </ion-item>
     <div *ngIf="myForm.get('password').errors && myForm.get('password').dirty">
         <p *ngIf="myForm.get('password').hasError('required')">Ingrese su Contraseña</p>
-        <p *ngIf="myForm.get('password').hasError('pattern')">La contraseña no es segura</p>
-        <p *ngIf="myForm.get('password').hasError('minLength')">La contraseña no puede tener menos de 8 caracteres</p>
+        <p *ngIf="myForm.controls['password'].hasError('isValidPassword')">Ingrese mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula, 
+          un número y un carácter especial</p>
     </div>
 </ion-card-content > 
 </ion-card >
