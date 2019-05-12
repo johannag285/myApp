@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { PerfilEmpresaPage } from './perfil-empresa.page';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+
+
 
 
 const routes: Routes = [
@@ -24,7 +26,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   providers:[
-    Camera
+    Camera,
   ],
   declarations: [PerfilEmpresaPage]
 })

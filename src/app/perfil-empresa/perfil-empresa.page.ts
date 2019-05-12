@@ -5,18 +5,21 @@ import { ActivatedRoute } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { storage } from 'firebase';
-import{AuthService} from "../servicios/auth.service"
+import { AuthService } from "../servicios/auth.service"
+import { CommonModule} from '@angular/common';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-perfil-empresa',
   templateUrl: './perfil-empresa.page.html',
   styleUrls: ['./perfil-empresa.page.scss'],
+ 
 })
 export class PerfilEmpresaPage implements OnInit {
 
-
+  myPhoto: any;
   empleo: Empleo = {
-    nombre:'',
+    nombre: '',
     cargo: '',
     descripcion: '',
     imagen: '',
@@ -28,7 +31,7 @@ export class PerfilEmpresaPage implements OnInit {
   files: Observable<any[]>;
 
   constructor(private camera: Camera, private todoService: TodoService, private router: ActivatedRoute,
-    private nav: NavController, private loadingContoller: LoadingController,public authservice : AuthService) {
+    private nav: NavController, private loadingContoller: LoadingController, public authservice: AuthService) {
     this.files = this.todoService.getFiles();
   }
 
@@ -78,7 +81,7 @@ export class PerfilEmpresaPage implements OnInit {
     console.log(idEmpleo);
   }
 
- takePhoto() {
+  takePhoto() {
 
     const options: CameraOptions = {
       quality: 100,
@@ -87,15 +90,15 @@ export class PerfilEmpresaPage implements OnInit {
       mediaType: this.camera.MediaType.PICTURE
     }
 
-     this.camera.getPicture(options).then((imageData) => {
+    this.camera.getPicture(options).then((imageData) => {
       this.myPhoto = 'data:image/jpeg;base64,+ imageData';
       const pictures = storage().ref('pictures:myPhoto');
-      pictures.putString(this.myPhoto,'data_url');
-    },(err) => {
-      
+      pictures.putString(this.myPhoto, 'data_url');
+    }, (err) => {
+
     });
     //.then((imageData) => {
-   
+
     //this.myPhoto = 'data:image/jpeg;base64,' + imageData;
     //}, (err) => {
     // Handle error
@@ -122,7 +125,36 @@ export class PerfilEmpresaPage implements OnInit {
     });
   }
 
-  OnLogout(){
+  OnLogout() {
     this.authservice.logoutEmpresa();
   }
+
+ /*
+  formattedAmount: string = '0';
+ 
+  
+
+  transformAmount(element){
+      this.formattedAmount = this.currencyPipe.transform(this.formattedAmount, '$');
+      element.target.value = this.formattedAmount;}
+  
+  value: any;
+
+  /*transformAmount(element) {
+    try {
+      if (typeof (element.target.value) !== 'number')
+        this.formattedAmount = this.currencyPipe.transform(this.value, 'INR', true, '1.0-0');
+      // Remove or comment this line if you dont want
+      // to show the formatted amount in the textbox.
+      element.target.value = this.formattedAmount;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+
+  removeCurrencyPipeFormat(formatedNumber){
+    return formatedNumber.replace(/[$,]/g,"")
+  }*/
+ 
 }
