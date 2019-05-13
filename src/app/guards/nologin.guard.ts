@@ -23,7 +23,6 @@ export class NologinGuard implements CanActivate {
           this.router.navigate(['/perfil-estudiante'])
           return false;
         }
-       
-      }))
+    }))
   }
 }
