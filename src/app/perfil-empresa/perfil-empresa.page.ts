@@ -8,6 +8,7 @@ import { storage } from 'firebase';
 import { AuthService } from "../servicios/auth.service"
 import { CommonModule} from '@angular/common';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { defineBase } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-perfil-empresa',
@@ -24,12 +25,13 @@ export class PerfilEmpresaPage implements OnInit {
     descripcion: '',
     imagen: '',
     salario: '',
-    horario: ''
+    horario: '',
+    id_user:''
   };
   empleoId = null;
 
   files: Observable<any[]>;
-
+  mostrarDatos:any;
   constructor(private camera: Camera, private todoService: TodoService, private router: ActivatedRoute,
     private nav: NavController, private loadingContoller: LoadingController, public authservice: AuthService) {
     this.files = this.todoService.getFiles();
@@ -46,7 +48,9 @@ export class PerfilEmpresaPage implements OnInit {
   async loadTodo() {
     const loading = await this.loadingContoller.create({
       message: 'Loading ...'
+    
     });
+     this.mostrarDatos = this.todoService.getUserInfo(this.empleoId);
     await loading.present();
     this.todoService.getEmpleo(this.empleoId).subscribe(res => {
       loading.dismiss();
