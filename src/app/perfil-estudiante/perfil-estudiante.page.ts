@@ -25,7 +25,8 @@ export class PerfilEstudiantePage implements OnInit {
     profesion: '',
     ciudad: '',
     descripcion: '',
-    hv: ''
+    hv: '',
+    id_user:''
   };
   estudianteId = null;
 
