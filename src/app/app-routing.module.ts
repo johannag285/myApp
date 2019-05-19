@@ -15,8 +15,6 @@ const routes: Routes = [
   { path: 'perfil-empresa/:id', loadChildren: './perfil-empresa/perfil-empresa.module#PerfilEmpresaPageModule' },
   { path: 'login-empresa', loadChildren: './login-empresa/login-empresa.module#LoginEmpresaPageModule', canActivate : [NologinEmpresaGuard]},
   { path: 'crear-estudiante', loadChildren: './crear-estudiante/crear-estudiante.module#CrearEstudiantePageModule',canActivate : [NologinGuard] },
-  { path: 'descripcion', loadChildren: './descripcion/descripcion.module#DescripcionPageModule' },
-  { path: 'descripcion2', loadChildren: './descripcion2/descripcion2.module#Descripcion2PageModule' },
   { path: 'datos-perfil-estudiante', loadChildren: './datos-perfil-estudiante/datos-perfil-estudiante.module#DatosPerfilEstudiantePageModule' },
 
 ];
