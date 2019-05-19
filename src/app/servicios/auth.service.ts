@@ -12,8 +12,12 @@ export class AuthService {
 
   login(email:string,password:string){
     return new Promise((resolve, rejected) =>{
-      this.AFauth.auth.signInWithEmailAndPassword(email,password).then(user=>{
-        resolve(user)
+      this.AFauth.auth.signInWithEmailAndPassword(email,password).then(data=>{
+        //aqui traer el user.uid, hacer un campo en la coleccionde estudienates y en la coleccion de empleos 
+        //en donde resiva este uid, luego cuando me loguee hago un where en donde me traiga solo
+        //los datos que correpsondan a este id
+        resolve(data.user.uid);
+        
       }).catch(err =>rejected(err))
     });  
   }
