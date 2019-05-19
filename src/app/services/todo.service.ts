@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, snapshotChanges } from 'angularfire2/database';
 import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
+import { defineBase } from '@angular/core/src/render3';
+import { request } from 'https';
 
 export interface Empleo {
   id?: string;
@@ -13,9 +15,10 @@ export interface Empleo {
   descripcion: string;
   salario: string;
   horario: string;
+  id_user: string;
 }
 
-export interface Estudiante{
+export interface Estudiante {
   id?: string;
   imagen: string;
   nombre: string;
@@ -23,7 +26,9 @@ export interface Estudiante{
   ciudad: string;
   descripcion: string;
   hv: string;
+  id_user: string;
 }
+
 
 
 @Injectable({
@@ -31,18 +36,21 @@ export interface Estudiante{
 })
 export class TodoService {
 
+  
+
   private empleosCollection: AngularFirestoreCollection<Empleo>;
   private empleos: Observable<Empleo[]>;
 
   private estudiantesCollection: AngularFirestoreCollection<Estudiante>;
   private estudiantes: Observable<Estudiante[]>;
 
-  constructor(db: AngularFirestore, private dbFire: AngularFireDatabase,
-     private afStorage: AngularFireStorage) {
 
-   
+  constructor(public db: AngularFirestore, private dbFire: AngularFireDatabase,
+    private afStorage: AngularFireStorage) {
+
     this.empleosCollection = db.collection<Empleo>('empleos');
     this.estudiantesCollection = db.collection<Estudiante>('estudiantes');
+
 
 
     this.empleos = this.empleosCollection.snapshotChanges().pipe(
@@ -54,6 +62,7 @@ export class TodoService {
         });
       })
     );
+
 
 
     this.estudiantes = this.estudiantesCollection.snapshotChanges().pipe(
@@ -68,8 +77,12 @@ export class TodoService {
   }
 
 
-
   
+  getUserInfo(request) {
+    //const ref = this.db.collection("");
+    let id = request.params.id_user;
+    let ofertas = this.db.collection('empleos', ref => ref.where('id_user', '==', id)).valueChanges();
+  }
 
   //métodos para el crud de empleo
   getEmpleos() {
@@ -92,8 +105,8 @@ export class TodoService {
     return this.empleosCollection.doc(id).delete();
   }
 
-   //métodos para el crud de estudiante
-   getEstudiantes() {
+  //métodos para el crud de estudiante
+  getEstudiantes() {
     return this.estudiantes;
   }
 
