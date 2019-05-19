@@ -18,16 +18,16 @@ export class CrearPage implements OnInit {
       this.myForm = this.fb.group({
         email: new FormControl('', Validators.compose([
           Validators.required,
-          CrearPage.isValidEmail
+          this.isValidEmail
         ])),
       password: new FormControl( '',Validators.compose([
         Validators.required,
-        CrearPage.isValidPassword
+        this.isValidPassword
         
         ])),
     });
   }
-  static isValidEmail(control: FormControl){
+  async isValidEmail(control: FormControl){
  
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       let result = re.test(control.value);
@@ -40,7 +40,7 @@ export class CrearPage implements OnInit {
       
       return null;
   }
-  static isValidPassword(control: FormControl){
+  async isValidPassword(control: FormControl){
  
     let re = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
       let result = re.test(control.value);
