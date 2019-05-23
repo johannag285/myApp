@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'perfil-empresa/:id', loadChildren: './perfil-empresa/perfil-empresa.module#PerfilEmpresaPageModule',canActivate : [AuthGuard] },
   { path: 'login-empresa', loadChildren: './login-empresa/login-empresa.module#LoginEmpresaPageModule', canActivate : [NologinEmpresaGuard]},
   { path: 'crear-estudiante', loadChildren: './crear-estudiante/crear-estudiante.module#CrearEstudiantePageModule',canActivate : [NologinGuard] },
-  { path: 'datos-perfil-estudiante', loadChildren: './datos-perfil-estudiante/datos-perfil-estudiante.module#DatosPerfilEstudiantePageModule' },
+  { path: 'datos-perfil-estudiante', loadChildren: './datos-perfil-estudiante/datos-perfil-estudiante.module#DatosPerfilEstudiantePageModule' },  { path: 'ver-empleos', loadChildren: './ver-empleos/ver-empleos.module#VerEmpleosPageModule' },
+
 
 ];
 
