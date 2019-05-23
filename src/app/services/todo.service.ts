@@ -35,8 +35,8 @@ export interface Estudiante {
   providedIn: 'root'
 })
 export class TodoService {
-
-  
+  private empleo : Empleo;
+  private estudiante: Estudiante;
 
   private empleosCollection: AngularFirestoreCollection<Empleo>;
   private empleos: Observable<Empleo[]>;
@@ -78,10 +78,16 @@ export class TodoService {
 
 
   
-  getUserInfo(request) {
+  getUserInfoEmpleo(request) {
     //const ref = this.db.collection("");
-    let id = request.params.id_user;
+    let id = request.empleo.id_user;
     let ofertas = this.db.collection('empleos', ref => ref.where('id_user', '==', id)).valueChanges();
+  }
+
+  getUserInfoEstudiante(request) {
+    //const ref = this.db.collection("");
+    let id = request.estudiante.id_user;
+    let ofertas = this.db.collection('estudiantes', ref => ref.where('id_user', '==', id)).valueChanges();
   }
 
   //métodos para el crud de empleo

@@ -23,9 +23,10 @@
       <ion-card-title > Ingrese los datos de su perfil</ion-card-title>
       <br>
       <br>
+      <!--
       <ion-button shape="round"(click)="takePhoto()" color="warning" class="tomarFoto">Tomar foto</ion-button>
       <ion-button shape="round" (click)="getPhoto()"color="warning" class="getFoto"> Galeria</ion-button>
-      <ion-label> <img src="{{ myPhoto }}" /> </ion-label>
+      <ion-label> <img src="{{ myPhoto }}" /> </ion-label>-->
 
       <ion-list lines="full">
         <ion-item *ngIf="estudiante">
@@ -58,24 +59,25 @@
         </ion-item>
 
         <br>
+        <!--
         <ion-item *ngIf="estudiante">
           <ion-icon class="icon1" name="list-box" slot="start" color="warning"></ion-icon>
           <ion-label class="label1">HV</ion-label>
           <ion-input required class="inPut1" type="file" multiple [(ngModel)]="estudiante.hv"> </ion-input>
-        </ion-item>
+        </ion-item>-->
         <br>
       </ion-list>
       <ion-button class="boton1" color=dark shape="round" (click)="saveTodo()">Enviar</ion-button>
     </ion-card-header>
   </ion-card>
 
-
+<!--
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="dark">
     <ion-fab-button color="dark" (click)="onRemoveEstudiante(estudianteId)" routerLink="/datos-perfil-estudiante"
       routerDirection="forward">
       <ion-icon name="trash"></ion-icon>
     </ion-fab-button>
-  </ion-fab> 
+  </ion-fab> -->
 
 
 

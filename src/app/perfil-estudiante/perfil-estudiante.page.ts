@@ -5,7 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { TodoService, Estudiante } from './../services/todo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController, LoadingController } from '@ionic/angular';
-import{AuthService} from "../servicios/auth.service"
+import { AuthService } from "../servicios/auth.service"
 
 
 
@@ -18,6 +18,8 @@ export class PerfilEstudiantePage implements OnInit {
 
 
   myPhoto: any;
+ 
+  
 
   estudiante: Estudiante = {
     imagen: '',
@@ -26,13 +28,13 @@ export class PerfilEstudiantePage implements OnInit {
     ciudad: '',
     descripcion: '',
     hv: '',
-    id_user:''
+    id_user: ''
   };
   estudianteId = null;
 
   constructor(private camera: Camera, private todoService: TodoService, private router: ActivatedRoute,
     private nav: NavController, private loadingContoller: LoadingController,
-    public authservice : AuthService, private storage: Storage, private routerr:Router) { }
+    public authservice: AuthService, private storage: Storage, private routerr: Router) { }
 
 
   ngOnInit() {
@@ -41,7 +43,7 @@ export class PerfilEstudiantePage implements OnInit {
       this.loadTodo();
     }
   }
- 
+
 
 
   async loadTodo() {
@@ -122,20 +124,21 @@ export class PerfilEstudiantePage implements OnInit {
   }
 
 
-  OnLogout(){
+  OnLogout() {
     this.authservice.logout();
   }
 
-perfil:any;
+  perfil: any;
 
-irAEmpleo(){
-  //escribir una bandera usando storage
-  //perfil = 'ESTUDIANTE' o perfil = 'EMPRESA'
-  //ir a empleo
- 
-  localStorage.setItem('estudiante','1');
-  this.routerr.navigate(['../empleo']);
+  irAEmpleo() {
+    //escribir una bandera usando storage
+    //perfil = 'ESTUDIANTE' o perfil = 'EMPRESA'
+    //ir a empleo
 
-}
+    localStorage.setItem('estudiante', '1');
+    this.routerr.navigate(['../ver-empleos']);
+
+
+  }
 
 }
