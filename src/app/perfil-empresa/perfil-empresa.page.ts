@@ -50,7 +50,7 @@ export class PerfilEmpresaPage implements OnInit {
       message: 'Loading ...'
     
     });
-     this.mostrarDatos = this.todoService.getUserInfo(this.empleoId);
+    //this.mostrarDatos= this.todoService.getUserInfoEmpleo(this.empleoId);
     await loading.present();
     this.todoService.getEmpleo(this.empleoId).subscribe(res => {
       loading.dismiss();
@@ -58,6 +58,7 @@ export class PerfilEmpresaPage implements OnInit {
     });
   }
   async saveTodo() {
+    localStorage.setItem('empresa', '2');
     const loading = await this.loadingContoller.create({
       message: 'Saving ...'
     });
