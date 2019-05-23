@@ -18,6 +18,7 @@ export class CrearPage implements OnInit {
       this.myForm = this.fb.group({
         email: new FormControl('', Validators.compose([
           Validators.required,
+          Validators.email,
           this.isValidEmail
         ])),
       password: new FormControl( '',Validators.compose([
